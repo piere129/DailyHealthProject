@@ -12,5 +12,5 @@ enum FoodType {
     VEGETABLE,
     MEAT,
     DRINK,
-    DESSERT
+    OTHER
 }
