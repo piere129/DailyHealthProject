@@ -17,6 +17,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var textbox2: UITextField!
     @IBOutlet weak var dropdown2: UIPickerView!
     
+    @IBOutlet weak var amountTextbox: UITextField!
+    
     var foodTypes = ["fruit","vegetable","meat","drinks","other"]
     var foods = ["1","2","3","4","5","6"]
     var foodArray = [FoodItem]()
