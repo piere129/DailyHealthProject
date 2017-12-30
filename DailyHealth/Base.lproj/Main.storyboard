@@ -24,6 +24,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="sendResults:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nhu-cX-Tc9"/>
+                                    <segue destination="lPF-4W-Wy8" kind="show" identifier="segue" id="UpQ-Ze-CnM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="write text here and press button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yI-ZS-vTk">
@@ -46,6 +47,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h3W-XY-dvh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="6MS-e6-svy"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -55,7 +63,6 @@
                     </view>
                     <connections>
                         <outlet property="nameField" destination="b5T-il-Hny" id="Hm2-UP-dm9"/>
-                        <segue destination="lPF-4W-Wy8" kind="show" identifier="segue" id="bld-I5-4MU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -77,21 +84,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4V-2I-WYn">
-                                <rect key="frame" x="16" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="back:" destination="lPF-4W-Wy8" eventType="touchUpInside" id="PEI-IV-63S"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="1kk-oZ-TkG"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gsn-Ca-3rZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="wT5-7S-8Eh">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="iIX-17-PJA">
+                                            <connections>
+                                                <action selector="back:" destination="lPF-4W-Wy8" id="UnF-K9-gow"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mGb-YF-QIL"/>
                     </view>
                     <connections>
                         <outlet property="resultlabel" destination="809-zu-wCW" id="7Ee-5Z-tPt"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="kYE-2Z-qmg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDh-1L-L6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
