@@ -53,7 +53,11 @@ class ViewController: UIViewController{
         
         //zorgen dat er enkel ints kunnen worden ingegeven bij amount
         self.amountTextbox.keyboardType = UIKeyboardType.numberPad
+        
+        self.amountTextbox.delegate = self
     }
+    
+    
     
 
     func addFoodAndAmountToArray()
@@ -143,9 +147,19 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
 }
 
 
-    //alle dropdown-gerelateerde code:
+    //alle dropdown & textfield-gerelateerde code:
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    //KEYBOARDHIDE
+    
+    //wanneer men ergens anders klikt wordt keyboard van amount gehide
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true);
+    }
+    
+    
+    //DROPDOWN
+    //geeft het aantal componenten weer voor pickerview
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
     }
