@@ -20,8 +20,10 @@ class ViewController: UIViewController{
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var amountTextbox: UITextField!
     
-    //adding new fooditem to tableview
+    @IBOutlet weak var tableview: UITableView!
     
+    
+    //adding new fooditem to tableview
     @IBOutlet weak var addButton: UIButton!
     @IBAction func addFooditem(_ sender: Any) {
         addFoodAndAmountToArray();
@@ -83,6 +85,7 @@ class ViewController: UIViewController{
             {
                 createdFoodAmounts[indexItem] += Int(amountTextbox.text!)!
             }
+            self.tableview.reloadData()
         }
     }
     
@@ -130,7 +133,12 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell;
+        cell.nameLabel.text = createdFoodnames[indexPath.row]
+        cell.amountLabel.text = String(createdFoodAmounts[indexPath.row])
+        
+        return cell;
     }
 }
 

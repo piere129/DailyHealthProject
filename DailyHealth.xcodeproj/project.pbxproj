@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F54ACDED1FF9325300E06C89 /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54ACDEC1FF9325300E06C89 /* ViewControllerTableViewCell.swift */; };
 		F55F0F4C1FF65849001109F3 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F0F4B1FF65849001109F3 /* Calculator.swift */; };
 		F55FFEFD1FF5335400C5FF0E /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FFEFC1FF5335400C5FF0E /* ResultController.swift */; };
 		F55FFF001FF6517600C5FF0E /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FFEFF1FF6517600C5FF0E /* FoodItem.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F54ACDEC1FF9325300E06C89 /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		F55F0F4B1FF65849001109F3 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		F55FFEFC1FF5335400C5FF0E /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 		F55FFEFF1FF6517600C5FF0E /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F54ACDEB1FF9323500E06C89 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F54ACDEC1FF9325300E06C89 /* ViewControllerTableViewCell.swift */,
+			);
+			path = "Custom Classes";
+			sourceTree = "<group>";
+		};
 		F55FFEF91FF5327200C5FF0E /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		F5E82B521FF3B0980085DCDA /* DailyHealth */ = {
 			isa = PBXGroup;
 			children = (
+				F54ACDEB1FF9323500E06C89 /* Custom Classes */,
 				F55FFEFE1FF6512600C5FF0E /* models */,
 				F55FFEF91FF5327200C5FF0E /* controllers */,
 				F5E82B531FF3B0980085DCDA /* AppDelegate.swift */,
@@ -170,6 +181,7 @@
 				F5E82B541FF3B0980085DCDA /* AppDelegate.swift in Sources */,
 				F55FFEFD1FF5335400C5FF0E /* ResultController.swift in Sources */,
 				F55F0F4C1FF65849001109F3 /* Calculator.swift in Sources */,
+				F54ACDED1FF9325300E06C89 /* ViewControllerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
