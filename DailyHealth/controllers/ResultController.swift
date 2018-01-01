@@ -12,11 +12,11 @@ class ResultController: UIViewController {
 
     @IBOutlet weak var resultlabel: UILabel!
     
-    var resultString = String()
+    var resultString = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultlabel.text = resultString;
+        resultlabel.text = resultString[0]
 
         // Do any additional setup after loading the view.
     }

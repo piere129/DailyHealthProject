@@ -29,6 +29,25 @@ class ViewController: UIViewController{
         addFoodAndAmountToArray();
     }
     
+    //action to trigger segue to calculatescreen
+    
+    @IBOutlet weak var calculateCaloriesLabel: UILabel!
+    @IBAction func calculateCalories(_ sender: Any) {
+        if createdFoodnames.count == 0
+        {
+            calculateCaloriesLabel.text = "List can't be empty!"
+            calculateCaloriesLabel.textColor = UIColor.red
+        }
+        else
+        {
+            calculateCaloriesLabel.text = "Calculate calories:"
+            calculateCaloriesLabel.textColor = UIColor.black
+            performSegue(withIdentifier: "segue", sender: self)
+        }
+        
+    }
+    
+    
     //arrays for default population dropdown menus
     var foodTypes = ["fruit","vegetable","meat","drinks","other"]
     var foods = ["1","2","3","4","5","6"]
@@ -55,6 +74,11 @@ class ViewController: UIViewController{
         self.amountTextbox.keyboardType = UIKeyboardType.numberPad
         
         self.amountTextbox.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let resultController = segue.destination as! ResultController
+        resultController.resultString = createdFoodnames
     }
     
     
