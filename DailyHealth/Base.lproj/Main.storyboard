@@ -135,16 +135,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhS-Od-WvW" userLabel="TableHeader">
-                                        <rect key="frame" x="0.0" y="208.5" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="230.5" width="375" height="33.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FoodItem:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hs0-O7-ACR">
-                                                <rect key="frame" x="0.0" y="0.5" width="225" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.5" width="225" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9a-H7-RhI">
-                                                <rect key="frame" x="225" y="0.5" width="150" height="60"/>
+                                                <rect key="frame" x="225" y="0.5" width="150" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -163,7 +163,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hc7-MH-yUW">
-                                        <rect key="frame" x="0.0" y="268.5" width="375" height="258.5"/>
+                                        <rect key="frame" x="0.0" y="264" width="375" height="259.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Ktr-KK-5w1" customClass="ViewControllerTableViewCell" customModule="DailyHealth" customModuleProvider="target">
@@ -211,16 +211,16 @@
                                         </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xpr-VW-8dQ" userLabel="calculateButtonView">
-                                        <rect key="frame" x="0.0" y="527" width="375" height="120.5"/>
+                                        <rect key="frame" x="0.0" y="523.5" width="375" height="124"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculate calories:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ve-o0-ehc">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="121"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="124.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vu-n9-CZ2">
-                                                <rect key="frame" x="217.5" y="25" width="70.5" height="70.5"/>
+                                                <rect key="frame" x="217.5" y="25" width="74.5" height="74"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="3Vu-n9-CZ2" secondAttribute="height" multiplier="1:1" id="73C-4r-0bp"/>
                                                 </constraints>
@@ -254,7 +254,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Xpr-VW-8dQ" secondAttribute="trailing" id="aIQ-gY-qJl"/>
                                     <constraint firstAttribute="trailing" secondItem="ZhS-Od-WvW" secondAttribute="trailing" id="ccc-iV-uB8"/>
                                     <constraint firstItem="ZhS-Od-WvW" firstAttribute="leading" secondItem="46n-Ys-bkd" secondAttribute="leading" id="gec-tG-8qp"/>
-                                    <constraint firstItem="ZhS-Od-WvW" firstAttribute="top" secondItem="ZOt-Cu-wNx" secondAttribute="bottom" constant="8" id="iZI-eG-NKz"/>
+                                    <constraint firstItem="ZhS-Od-WvW" firstAttribute="top" secondItem="ZOt-Cu-wNx" secondAttribute="bottom" constant="30" id="iZI-eG-NKz"/>
                                     <constraint firstItem="Hc7-MH-yUW" firstAttribute="leading" secondItem="46n-Ys-bkd" secondAttribute="leading" id="mCE-L4-R7I"/>
                                     <constraint firstItem="Xpr-VW-8dQ" firstAttribute="top" secondItem="Hc7-MH-yUW" secondAttribute="bottom" id="wbt-1g-b0H"/>
                                     <constraint firstItem="ZOt-Cu-wNx" firstAttribute="leading" secondItem="46n-Ys-bkd" secondAttribute="leading" id="yfp-Tk-J3u"/>
@@ -267,7 +267,7 @@
                             <constraint firstItem="46n-Ys-bkd" firstAttribute="top" secondItem="bvi-6W-wsO" secondAttribute="bottom" id="9T8-OO-2so"/>
                             <constraint firstItem="bvi-6W-wsO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JrS-Vr-YPG"/>
                             <constraint firstItem="ZOt-Cu-wNx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="XqK-fx-rX8"/>
-                            <constraint firstItem="ZhS-Od-WvW" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.09" id="bYc-iY-KaF"/>
+                            <constraint firstItem="ZhS-Od-WvW" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.05" id="bYc-iY-KaF"/>
                             <constraint firstItem="bvi-6W-wsO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="c1U-2e-qm5"/>
                             <constraint firstItem="bvi-6W-wsO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oKf-DZ-R0C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="46n-Ys-bkd" secondAttribute="bottom" id="qmJ-6d-jFZ"/>
@@ -291,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21.600000000000001" y="27.436281859070466"/>
+            <point key="canvasLocation" x="-377" y="27"/>
         </scene>
         <!--Result Controller-->
         <scene sceneID="czt-Rr-Yl4">
