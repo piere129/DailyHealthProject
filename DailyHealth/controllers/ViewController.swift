@@ -24,17 +24,17 @@ class ViewController: UIViewController{
     @IBOutlet weak var tableview: UITableView!
     
     
-    //nieuw fooditem toevoegen aan tableview
+    //add new fooditem to tableview
     @IBOutlet weak var addButton: UIButton!
     
-    //constraint relatief met screensize maken
+    //edit constraint addbutton relative to screensize
     @IBOutlet weak var addButtonConstraint: NSLayoutConstraint!
-    
+    //addButton method
     @IBAction func addFooditem(_ sender: Any) {
         addFoodAndAmountToArray();
     }
     
-    //action om segue te triggeren naar resultscherm
+    //action to trigger segue to resultscreen + shows errors
     @IBOutlet weak var calculateCaloriesLabel: UILabel!
     @IBAction func calculateCalories(_ sender: Any) {
         if createdFoodnames.count == 0
@@ -52,46 +52,49 @@ class ViewController: UIViewController{
     }
     
     
-    //arrays voor default populatie dropdown menus
+    //arrays for default population dropdown menus
     var foodTypes = ["fruit","vegetable","meat","drinks","other"]
     var foods = ["1","2","3","4","5","6"]
     
-    //tijdelijke array om fooditems te getten op basis van het type, van de calculatorklasse
+    //temporary array to get fooditems based on type from calculator-class
     var foodArray = [FoodItem]()
     
-    //array met gecreeërde objecten om in tableview te zetten
+    //array with created objects to show in tableview
     var createdFoodnames = [String]()
     var createdFoodAmounts = [Int]()
+
     
-    //Calculatorklasse voor alle berekeningen
+    //Calculator-class for all calculations
     var calculator = CaloryCalculator();
     
+    //runs before showing screen
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        //zorgen dat dropdown boven de textfields wordt weergegeven
+        //shows the dropdowns above the textfields
         self.dropdown1.layer.zPosition = 1;
         self.dropdown2.layer.zPosition = 1;
         
-        //zorgen dat er enkel ints kunnen worden ingegeven bij amount
+        //makes sure that only ints can be entered in the foodamount textfield
         self.amountTextbox.keyboardType = UIKeyboardType.numberPad
-        //laat amounttextbox zichzelf delegeren
         self.amountTextbox.delegate = self
-        //constraint voor rechtse alignment met screen relatief maken
+        //constraint to make alignment to the right relative for addButton
         let screenSize: CGRect = UIScreen.main.bounds;
         addButtonConstraint.constant = screenSize.width * 0.175;
-        
+        //refreshes tableview
         self.tableview.reloadData()
     }
     
-    //uitgevoerd voor het uitvoeren van de segue naar resultcontroller
+    //executed before using segue to switch controllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var resultController = segue.destination as! ResultController
-        //resultController.resultString = createdFoodnames
+        //fill the arrays from resultcontroller
+        resultController.nameArray = createdFoodnames
+        resultController.amountArray = createdFoodAmounts
     }
     
-    //voegt foodamount toe aan array
+    //add foodamount to array, from ibaction addFooditem + shows errors
     func addFoodAndAmountToArray()
     {
         if self.textbox2.text == "" || self.amountTextbox.text == ""
@@ -122,10 +125,9 @@ class ViewController: UIViewController{
                 createdFoodAmounts[indexItem] += Int(amountTextbox.text!)!
             }
             self.tableview.reloadData()
-        }
-    }
+        }    }
     
-    //verandert de labels in errors waar nodig
+    //changes the labels to erors wherever necessary
     func showErrors()
     {
         if textbox2.text == ""
@@ -141,7 +143,7 @@ class ViewController: UIViewController{
         }
     }
     
-    //reset de labels naar hun oorspronkelijke staat
+    //reset the labels to their original state
     func hideErrors()
     {
 
@@ -161,7 +163,7 @@ class ViewController: UIViewController{
 
 
 
-//begin tableview methodes:
+//start tableview methods:
 extension ViewController:UITableViewDelegate,UITableViewDataSource {
     
     //defines rowamount in tableview
@@ -169,17 +171,25 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
         return createdFoodnames.count;
     }
     
-    //defineert content van elke cell
+    //defines content of each cell and uses custom cell for multiple columns
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell;
         cell.nameLabel.text = createdFoodnames[indexPath.row]
-        cell.amountLabel.text = String(createdFoodAmounts[indexPath.row])
         
+        //g or cl based on foodtype
+        if calculator.isDrink(name: createdFoodnames[indexPath.row])
+        {
+            cell.amountLabel.text = "\(String(createdFoodAmounts[indexPath.row])) cl"
+        }
+        else
+        {
+            cell.amountLabel.text = "\(String(createdFoodAmounts[indexPath.row])) g"
+        }
         return cell;
     }
     
-    //deleten van tablerows
+    //deleting of tablerows with swipe
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
@@ -195,24 +205,24 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
 
 
 
-    //alle dropdown & textfield-gerelateerde code:
+    //all dropdown & textfield-related code:
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     //KEYBOARDHIDE
     
-    //wanneer men ergens anders klikt wordt keyboard van amount gehide
+    //when clicked on the main view, the keyboard hides
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true);
     }
     
     
     //DROPDOWN
-    //geeft het aantal componenten weer voor pickerview
+    //define number of components pickerview
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
     }
     
-    //aantal rijen instellen voor dropdown-menu
+    //define rowamount for dropdown
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var countrows : Int = foodTypes.count
         if pickerView == dropdown2 {
@@ -221,7 +231,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
         return countrows;
     }
     
-    //edit textfieldtitel met nieuwe waarde dropdown
+    //edit textfield title with new value dropdown
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         self.view.endEditing(true)
         if pickerView == dropdown1 {
@@ -235,9 +245,10 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
         return "";
     }
     
-    //doet dropdown verdwijnen na selectie item, en verandert 2e dropdown bij verandering eerste
+    //makes dropdown disappear after selection item and changes content of 2nd dropdown when first one changes
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == dropdown1 {
+        if pickerView == dropdown1
+        {
             self.textbox1.text = self.foodTypes[row]
             
             //label amount aanpassen indien drank
@@ -252,9 +263,15 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
             
             self.textbox2.text = "";
             self.foodArray = calculator.getArrayOfType(type: textbox1.text!);
-            for (index, element) in foodArray.enumerated() {
+            
+            for (index, element) in foodArray.enumerated()
+            {
                 foods[index] = element.name;
             }
+            
+            //reloads all items in the dropdown so it shows the new values
+            self.dropdown2.reloadAllComponents()
+            
             self.dropdown1.isHidden = true;
         }
         else if pickerView == dropdown2 {
@@ -263,7 +280,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
         }
     }
     
-    //dropdown2 enablen bij selectie eerste knop
+    //enable dropdown 2 at selection of first dropdown
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == self.textbox1
         {

@@ -7,8 +7,10 @@
 //
 
 import Foundation
+//creates all possible objects
 struct CaloryCalculator{
     
+    //an array for each foodtype + array for all items
     var food = [FoodItem]()
     var fruits = [FoodItem]()
     var vegetables = [FoodItem]()
@@ -21,6 +23,7 @@ struct CaloryCalculator{
         initialiseArrays()
     }
     
+    //fills all the arrays
     mutating func initialiseArrays()
     {
         // per 100 gram
@@ -86,18 +89,19 @@ struct CaloryCalculator{
     }
     
     //geeft het calorie-aantal terug na het verwerken vh aantal g of cl gedronken
-    func getTotal(name: String, amount: Double) -> Double
+    //returns calory-amount after processing the amount of grams/cl drunk
+    func getTotalAmountItem(name: String, amount: Double) -> Double
     {
-        //loopt door alle fooditems voor matchende naam
+        //loops through all fooditems for a matching name
         for fooditem in food
         {
             if fooditem.name == name {
                 if fooditem.type == FoodType.DRINK
                 {
-                    //UI vraagt voor amount in cl, dus delen door 10 hier voor correcte calorieen
+                    //UI asks for amount in cl, so divide by 10 to get the correct caloryamount
                     return amount * 0.1 * fooditem.caloryAmount
                 }
-                //UI vraagt voor amount in g, dus delen door 100 voor correcte calorieen
+                //UI asks for amount in grams, so divide by 100 for correct amount of  calories
                 return amount * 0.01 * fooditem.caloryAmount
             }
         }
@@ -105,6 +109,7 @@ struct CaloryCalculator{
         return 0;
     }
     
+    //returns correct array based on a type string
     func getArrayOfType(type: String) -> [FoodItem]
     {
         switch type {
@@ -115,5 +120,20 @@ struct CaloryCalculator{
         case "other": return other;
         default: return food;
         }
+    }
+    
+    //checks of the name given is a drink (cl) or another type (g)
+    func isDrink(name: String) -> Bool
+    {
+        var isDrink = false;
+        for item in drinks
+        {
+            if item.name == name
+            {
+                isDrink = true;
+            }
+        }
+        
+        return isDrink
     }
 }

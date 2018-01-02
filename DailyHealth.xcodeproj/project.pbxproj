@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F514F48E1FFBC4D400DAC0A7 /* ResultControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F514F48D1FFBC4D400DAC0A7 /* ResultControllerTableViewCell.swift */; };
 		F54ACDED1FF9325300E06C89 /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54ACDEC1FF9325300E06C89 /* ViewControllerTableViewCell.swift */; };
 		F55F0F4C1FF65849001109F3 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F0F4B1FF65849001109F3 /* Calculator.swift */; };
 		F55FFEFD1FF5335400C5FF0E /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FFEFC1FF5335400C5FF0E /* ResultController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F514F48D1FFBC4D400DAC0A7 /* ResultControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultControllerTableViewCell.swift; sourceTree = "<group>"; };
 		F54ACDEC1FF9325300E06C89 /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		F55F0F4B1FF65849001109F3 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		F55FFEFC1FF5335400C5FF0E /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
@@ -45,12 +47,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F54ACDEB1FF9323500E06C89 /* Custom Classes */ = {
+		F54ACDEB1FF9323500E06C89 /* Custom cells */ = {
 			isa = PBXGroup;
 			children = (
 				F54ACDEC1FF9325300E06C89 /* ViewControllerTableViewCell.swift */,
+				F514F48D1FFBC4D400DAC0A7 /* ResultControllerTableViewCell.swift */,
 			);
-			path = "Custom Classes";
+			path = "Custom cells";
 			sourceTree = "<group>";
 		};
 		F55FFEF91FF5327200C5FF0E /* controllers */ = {
@@ -91,7 +94,7 @@
 		F5E82B521FF3B0980085DCDA /* DailyHealth */ = {
 			isa = PBXGroup;
 			children = (
-				F54ACDEB1FF9323500E06C89 /* Custom Classes */,
+				F54ACDEB1FF9323500E06C89 /* Custom cells */,
 				F55FFEFE1FF6512600C5FF0E /* models */,
 				F55FFEF91FF5327200C5FF0E /* controllers */,
 				F5E82B531FF3B0980085DCDA /* AppDelegate.swift */,
@@ -179,6 +182,7 @@
 				F55FFF001FF6517600C5FF0E /* FoodItem.swift in Sources */,
 				F5E82B561FF3B0980085DCDA /* ViewController.swift in Sources */,
 				F5E82B541FF3B0980085DCDA /* AppDelegate.swift in Sources */,
+				F514F48E1FFBC4D400DAC0A7 /* ResultControllerTableViewCell.swift in Sources */,
 				F55FFEFD1FF5335400C5FF0E /* ResultController.swift in Sources */,
 				F55F0F4C1FF65849001109F3 /* Calculator.swift in Sources */,
 				F54ACDED1FF9325300E06C89 /* ViewControllerTableViewCell.swift in Sources */,
