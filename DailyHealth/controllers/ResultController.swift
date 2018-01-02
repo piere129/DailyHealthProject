@@ -61,6 +61,8 @@ extension ResultController: UITableViewDelegate, UITableViewDataSource
         if calculator.isDrink(name: nameArray[indexPath.row])
         {
             cell.amountLabel.text = "\(String(amountArray[indexPath.row])) cl"
+            print("haha")
+            
         }
         else
         {
