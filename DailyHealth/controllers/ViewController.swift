@@ -79,9 +79,7 @@ class ViewController: UIViewController{
         //makes sure that only ints can be entered in the foodamount textfield
         self.amountTextbox.keyboardType = UIKeyboardType.numberPad
         self.amountTextbox.delegate = self
-        //constraint to make alignment to the right relative for addButton
-        let screenSize: CGRect = UIScreen.main.bounds;
-        addButtonConstraint.constant = screenSize.width * 0.175;
+        
         //refreshes tableview
         self.tableview.reloadData()
     }
