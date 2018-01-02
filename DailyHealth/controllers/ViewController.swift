@@ -23,14 +23,13 @@ class ViewController: UIViewController{
     @IBOutlet weak var tableview: UITableView!
     
     
-    //adding new fooditem to tableview
+    //nieuw fooditem toevoegen aan tableview
     @IBOutlet weak var addButton: UIButton!
     @IBAction func addFooditem(_ sender: Any) {
         addFoodAndAmountToArray();
     }
     
-    //action to trigger segue to calculatescreen
-    
+    //action om segue te triggeren naar resultscherm
     @IBOutlet weak var calculateCaloriesLabel: UILabel!
     @IBAction func calculateCalories(_ sender: Any) {
         if createdFoodnames.count == 0
@@ -48,14 +47,14 @@ class ViewController: UIViewController{
     }
     
     
-    //arrays for default population dropdown menus
+    //arrays voor default populatie dropdown menus
     var foodTypes = ["fruit","vegetable","meat","drinks","other"]
     var foods = ["1","2","3","4","5","6"]
     
-    //temporary array for getting fooditems, based on the foodtype
+    //tijdelijke array om fooditems te getten op basis van het type, van de calculatorklasse
     var foodArray = [FoodItem]()
     
-    //array with created objects to fill tableview with
+    //array met gecreeërde objecten om in tableview te zetten
     var createdFoodnames = [String]()
     var createdFoodAmounts = [Int]()
     
@@ -76,14 +75,13 @@ class ViewController: UIViewController{
         self.amountTextbox.delegate = self
     }
     
+    //uitgevoerd voor het uitvoeren van de segue naar resultcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let resultController = segue.destination as! ResultController
         resultController.resultString = createdFoodnames
     }
     
-    
-    
-
+    //voegt foodamount toe aan array
     func addFoodAndAmountToArray()
     {
         if self.textbox2.text == "" || self.amountTextbox.text == ""
@@ -156,10 +154,12 @@ class ViewController: UIViewController{
 //begin tableview methodes:
 extension ViewController:UITableViewDelegate,UITableViewDataSource {
     
+    //defines rowamount in tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return createdFoodnames.count;
     }
     
+    //defineert content van elke cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell;
@@ -168,7 +168,21 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
         
         return cell;
     }
+    
+    //deleten van tablerows
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
+            (action, view, completionHandler) in
+            self.createdFoodnames.remove(at: indexPath.row)
+            self.createdFoodAmounts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            completionHandler(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }
+
 
 
     //alle dropdown & textfield-gerelateerde code:
