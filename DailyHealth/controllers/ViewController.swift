@@ -11,6 +11,7 @@ import UIKit
 
 class ViewController: UIViewController{
 
+   
     @IBOutlet weak var foodChoiceLabel: UILabel!
     @IBOutlet weak var textbox1: UITextField!
     @IBOutlet weak var dropdown1: UIPickerView!
@@ -25,6 +26,10 @@ class ViewController: UIViewController{
     
     //nieuw fooditem toevoegen aan tableview
     @IBOutlet weak var addButton: UIButton!
+    
+    //constraint relatief met screensize maken
+    @IBOutlet weak var addButtonConstraint: NSLayoutConstraint!
+    
     @IBAction func addFooditem(_ sender: Any) {
         addFoodAndAmountToArray();
     }
@@ -71,14 +76,19 @@ class ViewController: UIViewController{
         
         //zorgen dat er enkel ints kunnen worden ingegeven bij amount
         self.amountTextbox.keyboardType = UIKeyboardType.numberPad
-        
+        //laat amounttextbox zichzelf delegeren
         self.amountTextbox.delegate = self
+        //constraint voor rechtse alignment met screen relatief maken
+        let screenSize: CGRect = UIScreen.main.bounds;
+        addButtonConstraint.constant = screenSize.width * 0.175;
+        
+        self.tableview.reloadData()
     }
     
     //uitgevoerd voor het uitvoeren van de segue naar resultcontroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let resultController = segue.destination as! ResultController
-        resultController.resultString = createdFoodnames
+        var resultController = segue.destination as! ResultController
+        //resultController.resultString = createdFoodnames
     }
     
     //voegt foodamount toe aan array
