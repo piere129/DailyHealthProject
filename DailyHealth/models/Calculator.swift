@@ -136,4 +136,24 @@ struct CaloryCalculator{
         
         return isDrink
     }
+    
+    func getTypeDouble(name: String) -> Double
+    {
+        var foodTypetoConvert = FoodType.FRUIT
+        for item in food
+        {
+            if item.name == name
+            {
+                foodTypetoConvert = item.type
+            }
+        }
+        
+        switch foodTypetoConvert {
+        case FoodType.FRUIT: return 0;
+        case FoodType.VEGETABLE: return 1;
+        case FoodType.MEAT: return 2;
+        case FoodType.DRINK: return 3;
+        case FoodType.OTHER: return 4;
+        }
+    }
 }

@@ -44,6 +44,15 @@ class ResultController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func showCharts(_ sender: Any) {
+        performSegue(withIdentifier: "chartSegue", sender:self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var chartController = segue.destination as! ChartController
+        chartController.caloryArray = self.caloryArray
+        chartController.nameArray = self.nameArray
+    }
 }
 
 //methods for tableview

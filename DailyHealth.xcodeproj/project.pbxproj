@@ -13,6 +13,8 @@
 		F55FFEFD1FF5335400C5FF0E /* ResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FFEFC1FF5335400C5FF0E /* ResultController.swift */; };
 		F55FFF001FF6517600C5FF0E /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FFEFF1FF6517600C5FF0E /* FoodItem.swift */; };
 		F55FFF021FF6554400C5FF0E /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55FFF011FF6554400C5FF0E /* FoodType.swift */; };
+		F575B7891FFD501C0098499D /* GroupTypeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F575B7881FFD501C0098499D /* GroupTypeFormatter.swift */; };
+		F59EB5951FFD3CB0000B87A8 /* ChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59EB5941FFD3CB0000B87A8 /* ChartController.swift */; };
 		F5E82B541FF3B0980085DCDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E82B531FF3B0980085DCDA /* AppDelegate.swift */; };
 		F5E82B561FF3B0980085DCDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E82B551FF3B0980085DCDA /* ViewController.swift */; };
 		F5E82B591FF3B0980085DCDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E82B571FF3B0980085DCDA /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		F55FFEFC1FF5335400C5FF0E /* ResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultController.swift; sourceTree = "<group>"; };
 		F55FFEFF1FF6517600C5FF0E /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		F55FFF011FF6554400C5FF0E /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
+		F575B7881FFD501C0098499D /* GroupTypeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTypeFormatter.swift; sourceTree = "<group>"; };
+		F59EB5941FFD3CB0000B87A8 /* ChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartController.swift; sourceTree = "<group>"; };
 		F5E82B501FF3B0980085DCDA /* DailyHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E82B531FF3B0980085DCDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5E82B551FF3B0980085DCDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			children = (
 				F5E82B551FF3B0980085DCDA /* ViewController.swift */,
 				F55FFEFC1FF5335400C5FF0E /* ResultController.swift */,
+				F59EB5941FFD3CB0000B87A8 /* ChartController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -95,6 +100,14 @@
 				F55F0F4B1FF65849001109F3 /* Calculator.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		F575B7871FFD50050098499D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F575B7881FFD501C0098499D /* GroupTypeFormatter.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		F5E82B471FF3B0980085DCDA = {
@@ -118,6 +131,7 @@
 		F5E82B521FF3B0980085DCDA /* DailyHealth */ = {
 			isa = PBXGroup;
 			children = (
+				F575B7871FFD50050098499D /* Other */,
 				F54ACDEB1FF9323500E06C89 /* Custom cells */,
 				F55FFEFE1FF6512600C5FF0E /* models */,
 				F55FFEF91FF5327200C5FF0E /* controllers */,
@@ -265,6 +279,8 @@
 				F5E82B541FF3B0980085DCDA /* AppDelegate.swift in Sources */,
 				F514F48E1FFBC4D400DAC0A7 /* ResultControllerTableViewCell.swift in Sources */,
 				F55FFEFD1FF5335400C5FF0E /* ResultController.swift in Sources */,
+				F575B7891FFD501C0098499D /* GroupTypeFormatter.swift in Sources */,
+				F59EB5951FFD3CB0000B87A8 /* ChartController.swift in Sources */,
 				F55F0F4C1FF65849001109F3 /* Calculator.swift in Sources */,
 				F54ACDED1FF9325300E06C89 /* ViewControllerTableViewCell.swift in Sources */,
 			);
