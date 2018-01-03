@@ -32,6 +32,7 @@ class ChartController: UIViewController {
         }
         let dataSet = PieChartDataSet(values: piechartDataArray, label: "")
         dataSet.colors = ChartColorTemplates.joyful()
+        dataSet.valueTextColor = UIColor.black
         let data = PieChartData(dataSets: [dataSet])
         pieChartView.data = data
         pieChartView.chartDescription?.text = "All fooditems with their respective total caloryvalue"
