@@ -76,10 +76,6 @@ class ViewController: UIViewController{
         self.dropdown1.layer.zPosition = 1;
         self.dropdown2.layer.zPosition = 1;
         
-        //makes sure that only ints can be entered in the foodamount textfield
-        self.amountTextbox.keyboardType = UIKeyboardType.numberPad
-        self.amountTextbox.delegate = self
-        
         //refreshes tableview
         self.tableview.reloadData()
     }
@@ -95,16 +91,18 @@ class ViewController: UIViewController{
     //add foodamount to array, from ibaction addFooditem + shows errors
     func addFoodAndAmountToArray()
     {
-        if self.textbox2.text == "" || self.amountTextbox.text == ""
+        if self.textbox2.text == "" || self.amountTextbox.text == "" || amountTextbox.text!.isNumeric == false
         {
             showErrors();
         }
         else
         {
             hideErrors();
+            
             var containsName = false;
             var indexItem = 0
             
+            //checks if the fooditem is already in the array, and if so, add amount to it
             for (index,element) in createdFoodnames.enumerated()
             {
                 if element == textbox2.text
@@ -122,8 +120,12 @@ class ViewController: UIViewController{
             {
                 createdFoodAmounts[indexItem] += Int(amountTextbox.text!)!
             }
+            
             self.tableview.reloadData()
-        }    }
+            
+        }
+        
+    }
     
     //changes the labels to erors wherever necessary
     func showErrors()
@@ -134,11 +136,24 @@ class ViewController: UIViewController{
             foodChoiceLabel.textColor = UIColor.red
         }
         
+        if amountTextbox.text?.isNumeric == false
+        {
+            self.amountLabel.text = "Must be numbers only!"
+            self.amountLabel.textColor = UIColor.red
+        }
+        if amountTextbox.text?.isNumeric == false
+        {
+            self.amountLabel.text = "Must be numbers only!"
+            self.amountLabel.textColor = UIColor.red
+        }
+        
         if amountTextbox.text == ""
         {
             amountLabel.text = "Choose an amount!"
             amountLabel.textColor = UIColor.red
         }
+        
+       
     }
     
     //reset the labels to their original state
@@ -159,6 +174,16 @@ class ViewController: UIViewController{
     }
 }
 
+
+extension String
+{
+    var isNumeric: Bool
+    {
+        guard self.count > 0 else { return false }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(self).isSubset(of: nums)
+    }
+}
 
 
 //start tableview methods:
@@ -253,10 +278,12 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
             if self.textbox1.text == "drinks"
             {
             self.amountLabel.text = "Amount (in cl):"
+            self.amountLabel.textColor = UIColor.black
             }
             else
             {
                 self.amountLabel.text = "Amount (in g):"
+                self.amountLabel.textColor = UIColor.black
             }
             
             self.textbox2.text = "";
@@ -293,6 +320,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
         }
 
     }
+    
 }
 
 
