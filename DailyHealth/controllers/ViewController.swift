@@ -9,9 +9,9 @@
 import UIKit
 
 
-class ViewController: UIViewController{
+class ViewController: UIViewController
+{
 
-   
     @IBOutlet weak var foodChoiceLabel: UILabel!
     @IBOutlet weak var textbox1: UITextField!
     @IBOutlet weak var dropdown1: UIPickerView!
@@ -30,13 +30,15 @@ class ViewController: UIViewController{
     //edit constraint addbutton relative to screensize
     @IBOutlet weak var addButtonConstraint: NSLayoutConstraint!
     //addButton method
-    @IBAction func addFooditem(_ sender: Any) {
+    @IBAction func addFooditem(_ sender: Any)
+    {
         addFoodAndAmountToArray();
     }
     
     //action to trigger segue to resultscreen + shows errors
     @IBOutlet weak var calculateCaloriesLabel: UILabel!
-    @IBAction func calculateCalories(_ sender: Any) {
+    @IBAction func calculateCalories(_ sender: Any)
+    {
         if createdFoodnames.count == 0
         {
             calculateCaloriesLabel.text = "List can't be empty!"
@@ -81,7 +83,8 @@ class ViewController: UIViewController{
     }
     
     //executed before using segue to switch controllers
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         var resultController = segue.destination as! ResultController
         //fill the arrays from resultcontroller
         resultController.nameArray = createdFoodnames
@@ -177,6 +180,7 @@ class ViewController: UIViewController{
 
 extension String
 {
+    //source: https://stackoverflow.com/questions/34587094/how-to-check-if-text-contains-only-numbers
     var isNumeric: Bool
     {
         guard self.count > 0 else { return false }
@@ -187,17 +191,24 @@ extension String
 
 
 //start tableview methods:
-extension ViewController:UITableViewDelegate,UITableViewDataSource {
+extension ViewController:UITableViewDelegate,UITableViewDataSource
+{
     
     //defines rowamount in tableview
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return createdFoodnames.count;
     }
     
     //defines content of each cell and uses custom cell for multiple columns
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         
+        //i made the custom cells by myself but couldn't import it to my main view, so I used this source:
+        //step 13 of source: https://www.ralfebert.de/tutorials/ios-swift-uitableviewcontroller/custom-cells/
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ViewControllerTableViewCell;
+        
+        
         cell.nameLabel.text = createdFoodnames[indexPath.row]
         
         //g or cl based on foodtype
@@ -213,9 +224,11 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     //deleting of tablerows with swipe
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete")
+        {
             (action, view, completionHandler) in
             self.createdFoodnames.remove(at: indexPath.row)
             self.createdFoodAmounts.remove(at: indexPath.row)
@@ -234,34 +247,42 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
     //KEYBOARDHIDE
     
     //when clicked on the main view, the keyboard hides
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    //second answer of source: https://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
         self.view.endEditing(true);
     }
     
     
     //DROPDOWN
     //define number of components pickerview
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int
+    {
         return 1;
     }
     
     //define rowamount for dropdown
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
         var countrows : Int = foodTypes.count
-        if pickerView == dropdown2 {
+        if pickerView == dropdown2
+        {
             countrows = foods.count
         }
         return countrows;
     }
     
     //edit textfield title with new value dropdown
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
         self.view.endEditing(true)
-        if pickerView == dropdown1 {
+        if pickerView == dropdown1
+        {
             let titleRow = foodTypes[row];
             return titleRow;
         }
-        else if pickerView == dropdown2 {
+        else if pickerView == dropdown2
+        {
             let titleRow = foods[row];
             return titleRow;
         }
@@ -269,7 +290,8 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
     }
     
     //makes dropdown disappear after selection item and changes content of 2nd dropdown when first one changes
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
         if pickerView == dropdown1
         {
             self.textbox1.text = self.foodTypes[row]
@@ -306,7 +328,8 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource, UITextFi
     }
     
     //enable dropdown 2 at selection of first dropdown
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
         if textField == self.textbox1
         {
             self.dropdown1.isHidden = false;

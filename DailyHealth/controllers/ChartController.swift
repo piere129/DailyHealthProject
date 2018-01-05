@@ -9,9 +9,11 @@
 import UIKit
 import Charts
 
-class ChartController: UIViewController {
+class ChartController: UIViewController
+{
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         pieChartUpdate()
     }
@@ -23,6 +25,7 @@ class ChartController: UIViewController {
 
     @IBOutlet weak var pieChartView: PieChartView!
     
+
     func pieChartUpdate ()
     {
         var piechartDataArray = [PieChartDataEntry]()
@@ -31,7 +34,7 @@ class ChartController: UIViewController {
             piechartDataArray.append(PieChartDataEntry(value: element, label: nameArray[index]))
         }
         let dataSet = PieChartDataSet(values: piechartDataArray, label: "")
-        dataSet.colors = ChartColorTemplates.joyful()
+        dataSet.colors = ChartColorTemplates.colorful()
         dataSet.valueTextColor = UIColor.black
         let data = PieChartData(dataSets: [dataSet])
         pieChartView.data = data

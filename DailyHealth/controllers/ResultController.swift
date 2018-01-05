@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ResultController: UIViewController {
+class ResultController: UIViewController
+{
     
     @IBOutlet weak var totalCalories: UILabel!
     
@@ -28,27 +29,29 @@ class ResultController: UIViewController {
         super.viewDidLoad()
 
         // for each item in the name-array, calculate its total caloryamount and push it to the caloryArray
-        for (index, element) in nameArray.enumerated() {
+        for (index, element) in nameArray.enumerated()
+        {
             let totalAmount = calculator.getTotalAmountItem(name: element, amount: Double(amountArray[index]))
             caloryArray.append(totalAmount)
             caloryTotal += totalAmount
             totalCalories.text = "The total amount of calories eaten is \(String(format:"%.1f",caloryTotal)) kcal"
             self.tableView.reloadData()
-            
         }
-        
     }
 
     //method to return to previous viewcontroller
-    @IBAction func back(_ sender: Any) {
+    @IBAction func back(_ sender: Any)
+    {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func showCharts(_ sender: Any) {
+    @IBAction func showCharts(_ sender: Any)
+    {
         performSegue(withIdentifier: "chartSegue", sender:self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         var chartController = segue.destination as! ChartController
         chartController.caloryArray = self.caloryArray
         chartController.nameArray = self.nameArray

@@ -8,7 +8,8 @@
 
 import Foundation
 //creates all possible objects
-struct CaloryCalculator{
+struct CaloryCalculator
+{
     
     //an array for each foodtype + array for all items
     var food = [FoodItem]()
@@ -19,7 +20,8 @@ struct CaloryCalculator{
     var other = [FoodItem]()
 
     
-    init(){
+    init()
+    {
         initialiseArrays()
     }
     
@@ -112,7 +114,8 @@ struct CaloryCalculator{
     //returns correct array based on a type string
     func getArrayOfType(type: String) -> [FoodItem]
     {
-        switch type {
+        switch type
+        {
         case "fruit": return fruits;
         case "vegetable": return vegetables;
         case "meat": return meat;
@@ -137,23 +140,4 @@ struct CaloryCalculator{
         return isDrink
     }
     
-    func getTypeDouble(name: String) -> Double
-    {
-        var foodTypetoConvert = FoodType.FRUIT
-        for item in food
-        {
-            if item.name == name
-            {
-                foodTypetoConvert = item.type
-            }
-        }
-        
-        switch foodTypetoConvert {
-        case FoodType.FRUIT: return 0;
-        case FoodType.VEGETABLE: return 1;
-        case FoodType.MEAT: return 2;
-        case FoodType.DRINK: return 3;
-        case FoodType.OTHER: return 4;
-        }
-    }
 }

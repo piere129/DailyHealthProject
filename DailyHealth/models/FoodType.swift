@@ -7,7 +7,8 @@
 //
 
 import Foundation
-enum FoodType {
+enum FoodType
+{
     case FRUIT,
     VEGETABLE,
     MEAT,
