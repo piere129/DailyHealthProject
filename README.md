@@ -7,4 +7,4 @@ The result gives you an overview of what you added, how much of that item you ha
 
 # How to install:
 
-To install, simply clone the directory in your folder and run "DailyHealth.xcworkspace". This is necessary to get the chart working. Compile the code and that's it!
+To install, simply clone the directory in your preferred folder, or download the zip and extract it there. Afterwards, open your terminal in that folder and execute 'pod install'. Afterwards, run "DailyHealth.xcworkspace". This is necessary to get the chart working. Compile the code and that's it!
